@@ -1,14 +1,13 @@
 <template>
   <q-page>
     <div class="container">
-
+      <img src="https://www.hpstore.com.tr/Data/EditorFiles/rdm/uye-kayit/uye-kayit-gorsel.jpg">
+      <div class="img-container">
+        <img src="https://www.hpstore.com.tr/Data/EditorFiles/tasarim/hp-logo-black.svg">
+      </div>
       <q-form class="custom-form">
         <q-card>
-          <div class="img-container">
-            <img src="https://www.hpstore.com.tr/Data/EditorFiles/tasarim/hp-logo-black.svg">
-          </div>
           <q-card-section>
-
             <div class="form-1">Üye Kayıt</div>
           </q-card-section>
           <q-card-section>
@@ -79,9 +78,10 @@
             <q-checkbox v-model="user.checkbox2" label="Üyelik Formu Aydınlatma Metni ve Yurtdışına Veri Aktarımı Açık Rıza Metnini okudum, rıza gösteriyorum." />
           </q-card-section>
 
-          <q-card-section>
-            <q-btn type="submit" color="primary" label="Kaydet" />
+          <q-card-section class="q-mb-md text-center">
+             <q-btn type="submit" color="primary" label="Kaydet" />
           </q-card-section>
+
         </q-card>
       </q-form>
     </div>
@@ -109,42 +109,35 @@ export default {
 </script>
 
 <style scoped>
-
-.form-1{
-  text-align: center;
-  font-size: 26px;
-}
-.formheader{
- text-align: center; 
- font-size: 15px;
-}
-.password-header{
-  text-align: center;
-  font-size: 15px;
-}
 .container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   height: 100vh;
+
 }
 
 .img-container {
   max-width: 70px;
   height: 70px;
-  margin-left: 220px; 
+  margin-right: 20px; /* Adjust the margin as needed */
 }
 
 .custom-form {
-  max-width: 500px; 
+  max-width: 500px;
+  width: 100%; /* Make sure the form takes the available width */
 }
 
-.form-header {
-  display: flex;
-  align-items: center;
+.form-1 {
+  text-align: center;
+  font-size: 26px;
 }
-
-.form-header q-icon {
-  margin-right: 8px; 
+.formheader {
+  text-align: center;
+  font-size: 15px;
+}
+.password-header {
+  text-align: center;
+  font-size: 15px;
 }
 </style>

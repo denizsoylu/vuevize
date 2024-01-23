@@ -7,11 +7,12 @@
       >
         <q-toolbar>
           <q-avatar size="50px">
-            <a href=""><img
+            <RouterLink to="/Anasayfa"> <a href=""><img
               src="https://www.hpstore.com.tr/Data/EditorFiles/tasarim/hp-logo-black.svg"
               alt="HP Logo"
               style="width: 70px; height: 50px"
             /></a>
+            </RouterLink>
           </q-avatar>
 
           <q-input

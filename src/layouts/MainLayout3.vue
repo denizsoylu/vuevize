@@ -51,17 +51,12 @@ import EssentialLink from 'components/EssentialLink.vue';
 
 const linksList = [
   {
-    title: 'Incele',
+    title: 'UyeOl',
     caption: 'Community Quasar projects',
     icon: 'favorite',
-    link: '/Incele'
+    link: '/UyeOl'
   },
-  {
-    title: 'sepet',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: ''
-  },
+ 
  
 ];
 

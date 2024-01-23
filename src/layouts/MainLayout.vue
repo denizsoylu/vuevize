@@ -56,7 +56,12 @@ const linksList = [
     icon: 'favorite',
     link: '/PageMain'
   },
-
+  {
+    title: 'Incele',
+    caption: 'Community Quasar projects',
+    icon: 'favorite',
+    link: '/'
+  },
  
  
 ];
