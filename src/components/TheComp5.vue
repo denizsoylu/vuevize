@@ -47,7 +47,7 @@
 
           <q-card-section>
             <div class="password-header">
-              <q-icon name="vpn_key" /> <!-- Şifre Bilgileri icon -->
+              <q-icon name="vpn_key" /> 
               <p>Şifre Bilgileri</p>
             </div>
           </q-card-section>
@@ -71,12 +71,10 @@
             />
           </q-card-section>
 
-          <!-- Checkbox 1 -->
           <q-card-section>
             <q-checkbox v-model="user.checkbox1" label="Üyelik sözleşmesini Okudum, Kabul Ediyorum." />
           </q-card-section>
 
-          <!-- Checkbox 2 -->
           <q-card-section>
             <q-checkbox v-model="user.checkbox2" label="Üyelik Formu Aydınlatma Metni ve Yurtdışına Veri Aktarımı Açık Rıza Metnini okudum, rıza gösteriyorum." />
           </q-card-section>
