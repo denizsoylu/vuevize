@@ -2,7 +2,7 @@
   <q-page>
    
     <ThePage2></ThePage2>
-    <ThePage1 style="margin-top: -750px"></ThePage1>
+    <ThePage1 style="margin-top: -650px"></ThePage1>
     <br />
     <br />
     <ThePage3></ThePage3>
@@ -17,8 +17,8 @@
     <ProductList2></ProductList2>
     <br />
     <div style="display: flex">
-      <div style="background-color: white; width: 740px"></div>
-      <div style="background-color: white; width: 740px"></div>
+      <div style="background-color: white; width: 650px"></div>
+      <div style="background-color: white; width: 650px"></div>
       <TheNewsFormPage></TheNewsFormPage>
     </div>
     <br />

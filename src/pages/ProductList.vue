@@ -66,6 +66,6 @@ export default defineComponent({
   justify-content: space-around;
   margin-left: 80px;
   margin-right: 80px;
-  margin-top: -380px;
+  margin-top: -280px;
 }
 </style>

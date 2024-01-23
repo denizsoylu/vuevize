@@ -61,7 +61,7 @@ export default defineComponent({
 
 <style scoped>
 .komple {
-  margin-top: -450px;
+  margin-top: -350px;
 }
 
 #baslik {
