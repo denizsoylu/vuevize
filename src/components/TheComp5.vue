@@ -69,7 +69,7 @@
           </q-card-section>
 
           <q-card-section class="q-mb-md text-center">
-        <q-btn type="submit" color="primary" label="Kaydet"/>
+        <q-btn type="submit" color="primary" label="Kaydet" @click="submitForm"/>
       </q-card-section>
 
         </q-card>
@@ -81,53 +81,57 @@
 
 
 <script>
-  import { initializeApp } from 'firebase/app';
-  import { getFirestore, doc, setDoc } from 'firebase/firestore';
-  
-  const firebaseConfig = {
-    apiKey: "AIzaSyBO-zUzYn8gYdXptCRJ88CgOZdPBnWtJyE",
+import { initializeApp } from 'firebase/app';
+import { getFirestore, doc, setDoc } from 'firebase/firestore'; // setDoc'u içe aktarın
+
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBO-zUzYn8gYdXptCRJ88CgOZdPBnWtJyE",
   authDomain: "vuevize.firebaseapp.com",
   projectId: "vuevize",
   storageBucket: "vuevize.appspot.com",
   messagingSenderId: "932079460330",
   appId: "1:932079460330:web:ded815dca106e776f59c93",
   measurementId: "G-N87C2MY0Z7"
-  };
+};
 
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
+// Firebase uygulamasını başlatın
+const app = initializeApp(firebaseConfig);
 
-  export default {
-    data() {
-      return {
-        user: {
-          name: '',
-          surname: '',
-          email: '',
-          password: '',
-          checkbox1: false,
-          checkbox2: false,
-        }
-      };
+// Firestore'u alın
+const db = getFirestore(app);
+
+export default {
+  data() {
+    return {
+      user: {
+        name: '',
+        surname: '',
+        email: '',
+        password: '',
+        checkbox1: false,
+        checkbox2: false,
+      }
+    };
+  },
+  methods: {
+    async submitForm() {
+      try {
+        await setDoc(doc(db, 'users', new Date().toISOString()), {
+          name: this.user.name,
+          surname: this.user.surname,
+          email: this.user.email,
+          password: this.user.password,
+          checkbox1: this.user.checkbox1,
+          checkbox2: this.user.checkbox2,
+          createdAt: new Date(),
+        });
+      } catch (error) {
+        console.error(error);
+      }
     },
-    methods: {
-      async submitForm() {
-        try {
-          await setDoc(doc(db, 'users', new Date().toISOString()), {
-            name: this.user.name,
-            surname: this.user.surname,
-            email: this.user.email,
-            password: this.user.password,
-            checkbox1: this.user.checkbox1,
-            checkbox2: this.user.checkbox2,
-            createdAt: new Date(),
-          });
-        } catch (error) {
-          console.error(error);
-        }
-      },
-    },
-  };
+  },
+};
 </script>
 
 

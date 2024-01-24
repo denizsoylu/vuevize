@@ -4,6 +4,7 @@ import { initializeApp } from "firebase/app";
 
 import { getFirestore } from "firebase/firestore"; // eslint-disable-line
 
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyBO-zUzYn8gYdXptCRJ88CgOZdPBnWtJyE",
   authDomain: "vuevize.firebaseapp.com",
