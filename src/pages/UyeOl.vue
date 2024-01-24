@@ -1,7 +1,7 @@
 <template>
     <q-page>
         <ThePage2></ThePage2>
-        <ThePage5 style="margin-top: -700px;"></ThePage5> 
+        <ThePage5 style="margin-top: -800px; margin-left: -2200px;"></ThePage5> 
         <FooterPage style="margin-top: 1250px;"> </FooterPage>
       </q-page>
   </template>

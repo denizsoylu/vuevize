@@ -1,8 +1,7 @@
-import { boot } from "quasar/wrappers";
-
-import { initializeApp } from "firebase/app";
-
-import { getFirestore } from "firebase/firestore"; // eslint-disable-line
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
+import { getFirestore } from 'firebase/firestore';
+import { boot } from 'quasar/wrappers';; // eslint-disable-line
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -16,9 +15,10 @@ const firebaseConfig = {
 };
 
 
-const fapp = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const db = getFirestore(app);
 
-const db = getFirestore(fapp);
 
 export default boot(async ({ app }) => {
   // for use inside Vue files (Options API) through this.$axios and this.$api
@@ -26,11 +26,7 @@ export default boot(async ({ app }) => {
   app.config.globalProperties.$db = db;
   // ^ ^ ^ this will allow you to use this.$db (for Vue Options API form)
   //       so you won't necessarily have to import axios in each vue file
-
-  app.config.globalProperties.$Firebaseapp = fapp;
-  // ^ ^ ^ this will allow you to use this.$Firebaseapp (for Vue Options API form)
-  //       so you can easily perform requests against your app's API
 });
-export { fapp };
+export { db };
 
 
