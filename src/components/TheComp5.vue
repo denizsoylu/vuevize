@@ -5,7 +5,7 @@
       <div class="img-container">
         <img src="https://www.hpstore.com.tr/Data/EditorFiles/tasarim/hp-logo-black.svg">
       </div>
-      <q-form class="custom-form">
+      <q-form @submit.prevent="submitForm" class="custom-form">
         <q-card>
           <q-card-section>
             <div class="form-1">Üye Kayıt</div>
@@ -20,27 +20,25 @@
           <q-card-section>
             <q-input
               v-model="user.name"
-              label="Ad"
+              placeholder="Ad"
               outlined
-              dense
+              
             />
           </q-card-section>
           <q-card-section>
             <q-input
               v-model="user.surname"
-              label="Soyad"
-              type="password"
+              placeholder="Soyad"
               outlined
-              dense
+              
             />
           </q-card-section>
 
           <q-card-section>
             <q-input
               v-model="user.email"
-              label="E-Mail"
+              placeholder="E-Mail"
               outlined
-              dense
             />
           </q-card-section>
 
@@ -54,21 +52,13 @@
           <q-card-section>
             <q-input
               v-model="user.password"
-              label="Şifre"
+              placeholder="Şifre"
               type="password"
               outlined
-              dense
+              
             />
           </q-card-section>
-          <q-card-section>
-            <q-input
-              v-model="user.passwordd"
-              label="Şifre Tekrar"
-              type="password"
-              outlined
-              dense
-            />
-          </q-card-section>
+      
 
           <q-card-section>
             <q-checkbox v-model="user.checkbox1" label="Üyelik sözleşmesini Okudum, Kabul Ediyorum." />
@@ -79,8 +69,8 @@
           </q-card-section>
 
           <q-card-section class="q-mb-md text-center">
-             <q-btn type="submit" color="primary" label="Kaydet" />
-          </q-card-section>
+        <q-btn type="submit" color="primary" label="Kaydet"/>
+      </q-card-section>
 
         </q-card>
       </q-form>
@@ -88,25 +78,59 @@
   </q-page>
 </template>
 
-<script>
-export default {
-  setup() {
-    const user = {
-      name: '',
-      surname: '',
-      email: '',
-      password: '',
-      passwordd: '',
-      checkbox1: false,
-      checkbox2: false,
-    };
 
-    return {
-      user,
-    };
-  },
-};
+
+<script>
+  import { initializeApp } from 'firebase/app';
+  import { getFirestore, doc, setDoc } from 'firebase/firestore';
+  
+  const firebaseConfig = {
+    apiKey: "AIzaSyBO-zUzYn8gYdXptCRJ88CgOZdPBnWtJyE",
+  authDomain: "vuevize.firebaseapp.com",
+  projectId: "vuevize",
+  storageBucket: "vuevize.appspot.com",
+  messagingSenderId: "932079460330",
+  appId: "1:932079460330:web:ded815dca106e776f59c93",
+  measurementId: "G-N87C2MY0Z7"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  export default {
+    data() {
+      return {
+        user: {
+          name: '',
+          surname: '',
+          email: '',
+          password: '',
+          checkbox1: false,
+          checkbox2: false,
+        }
+      };
+    },
+    methods: {
+      async submitForm() {
+        try {
+          await setDoc(doc(db, 'users', new Date().toISOString()), {
+            name: this.user.name,
+            surname: this.user.surname,
+            email: this.user.email,
+            password: this.user.password,
+            checkbox1: this.user.checkbox1,
+            checkbox2: this.user.checkbox2,
+            createdAt: new Date(),
+          });
+        } catch (error) {
+          console.error(error);
+        }
+      },
+    },
+  };
 </script>
+
+
 
 <style scoped>
 .container {
